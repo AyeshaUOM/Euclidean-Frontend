@@ -1,0 +1,11 @@
+li.active > a, .nav li:focus > a {
+  background-color: #00bcd4;
+}
+
+.nav li:hover > a {
+  background-color: #a7a7a7;
+  color: white;
+  i{
+      color: white;
+  }
+}

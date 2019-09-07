@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-12">
+      <div  #puzzleCard class="card">
+            <div class="card-header card-header-primary">
+                    <h4 class="card-title">
+                        <span >
+                            New Puzzle
+                        </span>
+                    </h4>
+                    <p class="card-category"></p>
+                </div>
+          <div class="card-body">
+              <h4>Puzzle Details</h4>
+              <form [formGroup]="puzzleDetails">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Puzzle Name" type="text" formControlName="name"
+                                  autocomplete="off">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Exercise Type" type="text"
+                                  formControlName="exerciseType" autocomplete="off">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Author" formControlName="author" type="text">
+                            </mat-form-field> 
+                      </div>
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="No of Questions" formControlName="noofQuestions" type="number" min="0">
+                            </mat-form-field>
+                      </div>
+                  </div>
+              
+                      <button mat-raised-button type="submit" (click)="savePuzzle()"
+                            class="btn btn-primary float-right">Save
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div *ngIf="puzzleList" class="row">
+    <div *ngFor="let puzzle of puzzleList" class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h5 class="card-category text-gray">{{puzzle.name}}</h5>
+                <h4 class="card-title">{{puzzle.author}}</h4>
+                <p class="card-description">{{puzzle.exerciseType}}</p>
+                <p class="card-description"><span>No of Questions </span>{{puzzle.noofQuestions}}</p>
+                <button (click)="editPuzzle(puzzle)" mat-button color="primary">Edit</button>
+                <button (click)="openDialog(puzzle)" mat-button color="warn">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

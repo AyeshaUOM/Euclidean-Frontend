@@ -1,0 +1,30 @@
+<div>
+  <h3 class="title">Parents List</h3>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let parent of parents">
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <span class="text-capitalize font-weight-bold small">{{parent.fatherName}}, {{parent.motherName}}</span>
+          </h5>
+          <div class="card-text">
+            <div class="row">
+              <div class="col-md-auto">
+                <span class="badge badge-light">
+                  Address:
+                </span>
+              </div>
+              <div class="col-md-8">
+                {{parent.addressLine1}} | {{parent.addressLine2}} | {{parent.addressLine3}}
+              </div>
+            </div>
+          </div>
+          <a routerLink="/update-parent/{{parent.id}}" class="btn btn-primary float-right">View</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,103 @@
+<div class="logo">
+    <a href="/" class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/favicon.png" />
+        </div>
+        Etudiant
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <ul class="nav">
+        <li class="nav-item ng-star-inserted active" routerlinkactive="active">
+            <a class="nav-link ng-star-inserted" data-toggle="collapse" href="#studentComponents"><i
+                    class="material-icons">apps</i>
+                <p>Student<b class="caret"></b></p>
+            </a>
+            <div class="collapse ng-star-inserted" id="studentComponents">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let menuItem of studentMenuItems"
+                        class="{{menuItem.class}} nav-item">
+                        <a class="nav-link" [routerLink]="[menuItem.path]">
+                            <i class="material-icons">{{menuItem.icon}}</i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ng-star-inserted active" routerlinkactive="active">
+            <a class="nav-link ng-star-inserted" data-toggle="collapse" href="#parentComponents"><i
+                    class="material-icons">apps</i>
+                <p>Parent<b class="caret"></b></p>
+            </a>
+            <div class="collapse ng-star-inserted" id="parentComponents">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let menuItem of parentMenuItems"
+                        class="{{menuItem.class}} nav-item">
+                        <a class="nav-link" [routerLink]="[menuItem.path]">
+                            <i class="material-icons">{{menuItem.icon}}</i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ng-star-inserted active" routerlinkactive="active">
+            <a class="nav-link ng-star-inserted" data-toggle="collapse" href="#adminComponents"><i
+                    class="material-icons">apps</i>
+                <p>Administrator<b class="caret"></b></p>
+            </a>
+            <div class="collapse ng-star-inserted" id="adminComponents">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let menuItem of adminMenuItems"
+                        class="{{menuItem.class}} nav-item">
+                        <a class="nav-link" [routerLink]="[menuItem.path]">
+                            <i class="material-icons">{{menuItem.icon}}</i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item ng-star-inserted active" routerlinkactive="active">
+            <a class="nav-link ng-star-inserted" data-toggle="collapse" href="#tournamentComponents"><i
+                    class="material-icons">apps</i>
+                <p>Tournament<b class="caret"></b></p>
+            </a>
+            <div class="collapse ng-star-inserted" id="tournamentComponents">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let menuItem of tournamentMenuItems"
+                        class="{{menuItem.class}} nav-item">
+                        <a class="nav-link" [routerLink]="[menuItem.path]">
+                            <i class="material-icons">{{menuItem.icon}}</i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+
+        <li class="nav-item ng-star-inserted active" routerlinkactive="active">
+            <a class="nav-link ng-star-inserted" data-toggle="collapse" href="#reportMenuItems"><i
+                    class="material-icons">apps</i>
+                <p>Reports<b class="caret"></b></p>
+            </a>
+            <div class="collapse ng-star-inserted" id="reportMenuItems">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let menuItem of reportMenuItems"
+                        class="{{menuItem.class}} nav-item">
+                        <a class="nav-link" [routerLink]="[menuItem.path]">
+                            <i class="material-icons">{{menuItem.icon}}</i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        
+    </ul>
+</div>

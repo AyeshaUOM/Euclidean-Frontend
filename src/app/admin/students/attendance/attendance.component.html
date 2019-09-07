@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="btn-group">
+            <button type="button" id="drpDown" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{clsName}}
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="getAttendanceByClass('1','A')">A</a>
+                <a class="dropdown-item" (click)="getAttendanceByClass('2','B')">B</a>
+                <a class="dropdown-item" (click)="getAttendanceByClass('3','C')">C</a>
+                <a class="dropdown-item" (click)="getAttendanceByClass('4','D')">D</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="padding: 30px;">
+        <h4>Curret Date is {{currentDate | date:'yyyy-MM-dd'}}</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">Attendance</h4>
+            <p class="card-category">Dispalying Attendance</p>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <tr>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                            <th>
+                                Admission Fee
+                            </th>
+                            <th>
+                                Attendance
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let std of student">
+                            <td>
+                                {{std.firstName}}
+                            </td>
+                            <td>
+                                {{std.lastName}}
+                            </td>
+                            <td>
+                                {{std.admissionFee}}
+                            </td>
+                            <td>
+                                <div class="form-check mr-auto">
+                                    <label class="form-check-label">
+                                            <!-- <input class="form-check-input" type="checkbox" value=""> -->
+                                        <input *ngIf="std.availabilityToday==1" (change)="checkValue($event,std.id,std.classID)" id="{{std.id}}" class="form-check-input" type="checkbox"
+                                            value="" checked>
+                                        <input *ngIf="std.availabilityToday==0" (change)="checkValue($event,std.id,std.classID)" id="{{std.id}}" class="form-check-input" type="checkbox"
+                                            value="">
+                                        <span class="form-check-sign"><span class="check"></span></span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4>Default Payment Details</h4>
+                <form [formGroup]="defaultPayment">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Default Class Fee" type="number" formControlName="classFee"
+                                    autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Default Admission Fee" type="number"
+                                    formControlName="admissionFee" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Default late Payment Date" type="number"
+                                    formControlName="latePaymentDate" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Default late Payment Precentage" type="number"
+                                    formControlName="latePaymentPrecentage" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check mr-auto">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"
+                                        formControlName="latePaymentEnabled"> Late Payment
+                                    enabled
+                                    <span class="form-check-sign"><span class="check"></span></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Month End late Payment Precentage" type="number"
+                                    formControlName="monthEndPrecentage" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check mr-auto">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"
+                                        formControlName="monthEndEnabled">Month end late
+                                    payment enabled
+                                    <span class="form-check-sign"><span class="check"></span></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <button mat-raised-button type="submit" (click)="saveDefaultPayment()"
+                        class="btn btn-info btn-round">Save Details</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="createPackage">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4>Create / Edit Packages</h4>
+                <form [formGroup]="package">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field>
+                                <input matInput placeholder="Package Name" formControlName="packageName" type="text"
+                                    autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check mr-auto">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" formControlName="isActive"> Package
+                                    enabled
+                                    <span class="form-check-sign"><span class="check"></span></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Number of Months" formControlName="noOfMonths"
+                                    type="number" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <input matInput placeholder="Discount Precentage" formControlName="precentage"
+                                    type="number" autocomplete="off">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check mr-auto">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"
+                                        formControlName="isAdmissionWaveOff"> Admission wave off
+                                    <span class="form-check-sign"><span class="check"></span></span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <button mat-raised-button type="button" (click)="newPackage()"
+                        class="btn btn-danger btn-round mr-2">New Package</button>
+                    <button mat-raised-button type="submit" (click)="savePackage()" class="btn btn-info btn-round">Save
+                        Package</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="packageList" class="row">
+    <div *ngFor="let pack of packageList" class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-header card-header-info">
+                <h4 class="card-title"> {{pack.packageName}} </h4>
+                <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+                <p>Number of Months: {{pack.noOfMonths}}</p>
+                <p>Discount precentage: {{pack.precentage}}</p>
+                <p>Admission Wave off: {{pack.isAdmissionWaveOff}}</p>
+                <button mat-raised-button type="button" (click)="editPackage(pack)" class="btn btn-info btn-round">Edit
+                    Package</button>
+            </div>
+        </div>
+    </div>
+</div>

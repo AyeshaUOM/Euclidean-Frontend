@@ -1,0 +1,46 @@
+// Override Bootstrap
+// $body-bg: #000;
+// $body-color: #111;
+
+// $theme-colors: (
+//   "primary": #ffc048,
+//   "danger": #ff5e57
+// );
+
+// .card .card-header-primary .card-icon,
+// .card .card-header-primary .card-text,
+// .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
+// .card.bg-primary,
+// .card.card-rotate.bg-primary .front,
+// .card.card-rotate.bg-primary .back {
+//   background: linear-gradient(60deg, #ffa801, #ffc048);
+// }
+
+// .mat-button.btn.btn-primary,
+// .mat-raised-button.btn.btn-primary,
+// .mat-raised-button.btn:not([class*="mat-elevation-z"]).btn-primary,
+// .btn.btn-primary {
+//   background-color: #a57035;
+// }
+// .mat-button.btn.btn-primary:focus,
+// .mat-button.btn.btn-primary.focus,
+// .mat-button.btn.btn-primary:hover,
+// .mat-raised-button.btn.btn-primary:focus,
+// .mat-raised-button.btn.btn-primary.focus,
+// .mat-raised-button.btn.btn-primary:hover,
+// .mat-raised-button.btn:not([class*="mat-elevation-z"]).btn-primary:focus,
+// .mat-raised-button.btn:not([class*="mat-elevation-z"]).btn-primary.focus,
+// .mat-raised-button.btn:not([class*="mat-elevation-z"]).btn-primary:hover,
+// .btn.btn-primary:focus,
+// .btn.btn-primary.focus,
+// .btn.btn-primary:hover {
+//   background-color: #a57035;
+// }
+
+@import "./assets/scss/material-dashboard.scss";
+@import '~ngx-toastr/toastr.css';
+
+
+.sidebar .sidebar-wrapper > .nav [data-toggle="collapse"] ~ div > ul > li > a i, .sidebar .sidebar-wrapper .user .user-info [data-toggle="collapse"] ~ div > ul > li > a i{
+  line-height: 27px;
+}

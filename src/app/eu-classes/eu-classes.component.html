@@ -1,0 +1,57 @@
+<div class="row justify-content-md-center">
+    <div class="col-md-5">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h6 class="card-category text-gray">Create / Edit Classes</h6>
+                <button type="button" (click)="resetCurrentForm()" class="btn btn-danger btn-round">Reset
+                    Details</button>
+                <form [formGroup]="euClass">
+                    <mat-form-field>
+                        <input matInput formControlName="id" placeholder="Class Id (Readonly)" readonly>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Day of Week</mat-label>
+                        <mat-select>
+                            <mat-option value="1">Monday</mat-option>
+                            <mat-option value="2">Tuesday</mat-option>
+                            <mat-option value="3">Wednsday</mat-option>
+                            <mat-option value="4">Thursday</mat-option>
+                            <mat-option value="5">Friday</mat-option>
+                            <mat-option value="6">Saturday</mat-option>
+                            <mat-option value="7">Sunday</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput formControlName="timeOfDay" placeholder="Time (HH:MM - HH:MM)" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput formControlName="name" placeholder="Name" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput formControlName="category" placeholder="Category" type="text">
+                    </mat-form-field>
+                    <div class="form-check mr-auto">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" formControlName="isActive"> Is Active
+                            <span class="form-check-sign"><span class="check"></span></span></label>
+                    </div>
+                    <button type="submit" (click)="saveClass()" class="btn btn-info btn-round">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="classList" class="row">
+    <div *ngFor="let aClass of classList" class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h5 class="card-category text-gray">{{aClass.id}}</h5>
+                <h4 class="card-title">{{aClass.name}}</h4>
+                <p class="card-description">{{aClass.daOfWeek}} {{aClass.timeOfDay}}</p>
+                <button (click)="editBranch(aClass)" class="btn btn-info btn-round">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>

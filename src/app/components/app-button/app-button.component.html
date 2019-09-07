@@ -1,0 +1,8 @@
+<button mat-raised-button [type]="type" class="btn btn-{{color}} float-{{float}}">
+    <span *ngIf="state != 'working'">
+        <ng-content></ng-content>
+    </span>
+    <span *ngIf="state == 'working'">
+        Working...
+    </span>
+</button>

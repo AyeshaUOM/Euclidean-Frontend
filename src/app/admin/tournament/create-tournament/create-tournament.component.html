@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-12">
+      <div  #tournmntCard class="card">
+            <div class="card-header card-header-primary">
+                    <h4 class="card-title">
+                        <span >
+                            Create Tournament
+                        </span>
+                    </h4>
+                    <p class="card-category"></p>
+                </div>
+          <div class="card-body">
+              <h4>Tournament Details</h4>
+              <form [formGroup]="tournamentDetails">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Tournament Name" type="text" formControlName="name"
+                                  autocomplete="off">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Venue" type="text"
+                                  formControlName="venue" autocomplete="off">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Starting Date" formControlName="startingDate" type="text">
+                        </mat-form-field> 
+                      </div>
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Ending Date" formControlName="endingDate" type="text">
+                            </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <mat-form-field>
+                              <input matInput placeholder="Fee for Interior Students " type="number"
+                                  formControlName="internalFee" autocomplete="off" min="0">
+                          </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                        <mat-form-field>
+                          <input matInput placeholder="Fee for Exterior Students " type="number"
+                              formControlName="externalFee" autocomplete="off" min="0">
+                      </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <mat-form-field>
+                              <textarea matInput placeholder="Description" formControlName="description" autocomplete="off"></textarea>
+                            </mat-form-field>
+                      </div>
+                    </div>
+                      <button mat-raised-button type="submit" (click)="saveTournament()"
+                            class="btn btn-primary float-right">Save
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div *ngIf="tournamentList" class="row">
+    <div *ngFor="let tournament of tournamentList" class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h5 class="card-category text-gray">{{tournament.name}}</h5>
+                <h4 class="card-title">{{tournament.venue}}</h4>
+                <p class="card-description">{{tournament.startingDate | date: 'dd/MM/yyyy'}}</p>
+                <p class="card-description">{{tournament.endingDate | date: 'dd/MM/yyyy'}}</p>
+                <button (click)="editTournament(tournament)" mat-button color="primary">Edit</button>
+                <button (click)="openDialog(tournament)" mat-button color="warn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

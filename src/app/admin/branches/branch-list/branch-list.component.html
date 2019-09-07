@@ -1,0 +1,41 @@
+<div class="row justify-content-md-center">
+    <div class="col-md-5">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h6 class="card-category text-gray">Create / Edit Branches</h6>
+                <button type="button" (click)="resetCurrentForm()" class="btn btn-danger btn-round">Reset
+                    Details</button>
+                <form [formGroup]="branch">
+                    <mat-form-field>
+                        <input matInput formControlName="id" placeholder="Branch Id (Readonly)" readonly>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput formControlName="name" placeholder="Name" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput formControlName="location" placeholder="Location" type="text">
+                    </mat-form-field>
+                    <div class="form-check mr-auto">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" formControlName="isActive"> Is Active
+                            <span class="form-check-sign"><span class="check"></span></span></label>
+                    </div>
+                    <button type="submit" (click)="saveBranch()" class="btn btn-info btn-round">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="branchList" class="row">
+    <div *ngFor="let branch of branchList" class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-body">
+                <h5 class="card-category text-gray">{{branch.id}}</h5>
+                <h4 class="card-title">{{branch.name}}</h4>
+                <p class="card-description">{{branch.location}}</p>
+                <button (click)="editBranch(branch)" class="btn btn-info btn-round">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>

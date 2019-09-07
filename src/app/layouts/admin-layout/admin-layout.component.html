@@ -1,0 +1,20 @@
+<div class="wrapper">
+
+    <!-- data-color="azure" data-background-color="white" -->
+    <div class="sidebar" data-image="./assets/img/sidebar-1.jpg">
+        <perfect-scrollbar>
+            <app-sidebar></app-sidebar>
+            <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+        </perfect-scrollbar>
+    </div>
+
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+        <div class="main-content">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
+</div>
